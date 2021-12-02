@@ -1,0 +1,32 @@
+<div *ngIf="selectedItem">
+    <h2>{{selectedItem.name | uppercase}} details</h2>
+    <div><span>Id: </span>{{selectedItem.id}}</div>
+    <div>
+        <label>Name:
+            <input [(ngModel)]="selectedItem.name" placeholder="name">
+        </label>
+    </div>
+    <div>
+        <label>Complete:
+            <input type="checkbox" [(ngModel)]="selectedItem.isCompleted"/>
+        </label>
+    </div>
+</div>
+
+<hr>
+<h2>TODO List</h2>
+
+<div *ngIf="items.length > 0">
+    <span>You have {{items.length}} {{items.length == 1 ? 'task' : 'tasks'}}</span>
+    <ul class="item-list">
+        <li *ngFor="let item of items"
+            (click)="onSelect(item)" 
+            (dblclick)="remove(item)"
+            [class.completed]="item.isCompleted"
+            [class.selected]="item === selectedItem">{{item.name}}</li>
+    </ul>
+    <small>* Double click to remove</small>
+</div>
+<div *ngIf="items.length == 0">
+    <span>List is empty!</span>
+</div>

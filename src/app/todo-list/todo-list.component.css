@@ -1,0 +1,27 @@
+.item-list {
+    list-style-type: none;
+    padding: 0;
+  } 
+.item-list li {
+    cursor: pointer;
+    background-color: #EEE;
+    margin: .8em 0;
+    padding: 1em;
+    border-radius: 4px;
+}   
+.item-list li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+}
+
+.item-list li.completed {
+    text-decoration: line-through;
+}
+
+.item-list li.selected {
+    background-color: rgb(143, 187, 130);
+    color: white;
+}
+.item-list li.selected:hover {
+    background-color: rgb(118, 155, 106);
+}
