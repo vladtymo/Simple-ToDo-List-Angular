@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ITEMS } from '../mock-todo-items';
-import { ToDoItem } from '../todo-item';
+import { IToDoItem } from '../todo-item';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,18 +9,18 @@ import { ToDoItem } from '../todo-item';
 })
 export class TodoListComponent implements OnInit {
 
-  toDoItem: ToDoItem = {
+  toDoItem: IToDoItem = {
     id: 1,
     name: "Start Bitrix project",
     isCompleted: false
   }
-  selectedItem: ToDoItem;
-  items: ToDoItem[] = ITEMS;
+  selectedItem: IToDoItem;
+  items: IToDoItem[] = ITEMS;
 
-  onSelect(item: ToDoItem): void {
+  onSelect(item: IToDoItem): void {
     this.selectedItem = item;
   } 
-  remove(itemToRemove: ToDoItem): void {
+  remove(itemToRemove: IToDoItem): void {
     this.items = this.items.filter(i => i !== itemToRemove);
     if (this.items.length == 0) this.selectedItem = null;
   }
@@ -28,7 +28,6 @@ export class TodoListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
 }
